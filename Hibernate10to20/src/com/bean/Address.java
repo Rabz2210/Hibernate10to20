@@ -1,11 +1,15 @@
 package com.bean;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address {
+		@Column(name="strno")
 		private int strno;
+		@Column(name="strname")
 		private String strname;
+		@Column(name="Cityname")
 		private String Cityname;
 		
 		public Address() {}
