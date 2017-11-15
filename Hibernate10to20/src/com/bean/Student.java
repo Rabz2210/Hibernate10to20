@@ -14,6 +14,7 @@ public class Student {
 
 		private int sid;
 		private String sname;
+		private Address addr;
 		
 		public Student() {}
 		
@@ -35,6 +36,12 @@ public class Student {
 		public void setSname(String sname) {
 			this.sname = sname;
 		}
-		
-		
+
+		public Address getAddr() {
+			return addr;
+		}
+		public void setAddr(Address addr) {
+			this.addr = addr;
+		}
+	
 }
