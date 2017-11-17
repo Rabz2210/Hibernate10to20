@@ -21,5 +21,6 @@
 	<classpathentry kind="lib" path="lib/log4j-1.2.11.jar"/>
 	<classpathentry kind="lib" path="lib/ojdbc14.jar"/>
 	<classpathentry kind="lib" path="lib/xerces-2.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/jpa-api-2.0-cr-1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

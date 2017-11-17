@@ -17,6 +17,8 @@ public class StudentTest {
 		adrTwo.setStrno(1000);
 		adrTwo.setStrname("Purani Rajasthan");
 		adrTwo.setCityname("Rajasthan");
+		sone.getListOfAddresses().add(adrOne);
+		sone.getListOfAddresses().add(adrTwo);
 		StudentDao obj = new StudentDao();
 		obj.add(sone);
 		System.out.println("Insertion done");

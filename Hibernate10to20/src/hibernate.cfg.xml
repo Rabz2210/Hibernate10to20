@@ -13,7 +13,9 @@
         <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>  
         <property name="show sql">true</property>
         <property name="hbm2ddl.auto">create</property>  
-    <mapping class="com.bean.Student"/>  
+    <mapping class="com.bean.Student"/> 
+     <mapping class="com.bean.Address"/>
+     
     </session-factory>  
   
 </hibernate-configuration>

@@ -1,14 +1,19 @@
 package com.bean;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
-import javax.persistence.Embedded;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 
 import javax.persistence.Id;
 
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CollectionOfElements;
 
 @Entity(name="Student")
 @Table(name="StudentSeven")
@@ -19,8 +24,9 @@ public class Student {
 		@Column(name="sid", nullable=false)
 		private int sid;
 		private String sname;
-		@Embedded
-		private Address addr;
+		
+		@CollectionOfElements
+		private Set<Address> listOfAddresses = new HashSet<Address>();
 		public Student() {}
 		
 		
@@ -39,12 +45,16 @@ public class Student {
 			this.sname = sname;
 		}
 
-		public Address getAddr() {
-			return addr;
+
+		public Set<Address> getListOfAddresses() {
+			return listOfAddresses;
 		}
-		public void setAddr(Address addr) {
-			this.addr = addr;
+
+
+		public void setListOfAddresses(Set<Address> listOfAddresses) {
+			this.listOfAddresses = listOfAddresses;
 		}
+
 		
-	
+		
 }
