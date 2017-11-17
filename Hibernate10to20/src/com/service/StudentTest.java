@@ -13,12 +13,10 @@ public class StudentTest {
 		adrOne.setStrno(435);
 		adrOne.setStrname("Purani delhi");
 		adrOne.setCityname("Delhi");
-		sone.setAddr(adrOne);
 		Address adrTwo = new Address();
 		adrTwo.setStrno(1000);
 		adrTwo.setStrname("Purani Rajasthan");
 		adrTwo.setCityname("Rajasthan");
-		sone.setOfficeaddr(adrTwo);
 		StudentDao obj = new StudentDao();
 		obj.add(sone);
 		System.out.println("Insertion done");
