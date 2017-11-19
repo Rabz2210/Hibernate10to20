@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,11 +30,9 @@ public class Student {
 		private int sid;
 		private String sname;
 		
-		@CollectionOfElements
+		@CollectionOfElements(fetch=FetchType.EAGER)// FetchType.LAZY
 		@JoinTable(name="Table_of_addresses", 
 		joinColumns=@JoinColumn(name="User_Id"))
-		@GenericGenerator(name="hilo-gen", strategy="hilo")
-		@CollectionId(columns = { @Column(name="Address_Id") }, generator = "hilo-gen", type = @Type(type = "long"))
 		private Collection<Address> listOfAddresses = new ArrayList<Address>();
 		public Student() {}
 		
