@@ -10,7 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CollectionOfElements;
@@ -26,6 +27,8 @@ public class Student {
 		private String sname;
 		
 		@CollectionOfElements
+		@JoinTable(name="Table_of_addresses", 
+		joinColumns=@JoinColumn(name="User_Id"))
 		private Set<Address> listOfAddresses = new HashSet<Address>();
 		public Student() {}
 		
