@@ -1,27 +1,30 @@
 package com.bean;
 
 
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.ArrayList;
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
+import java.util.*;
 
+import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.CollectionOfElements;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 
 @Entity(name="Student")
 @Table(name="StudentSeven")
 public class Student {
 
 		@Id
-		@GeneratedValue
+		@GeneratedValue(strategy = GenerationType.AUTO)
 		@Column(name="sid", nullable=false)
 		private int sid;
 		private String sname;
@@ -29,7 +32,9 @@ public class Student {
 		@CollectionOfElements
 		@JoinTable(name="Table_of_addresses", 
 		joinColumns=@JoinColumn(name="User_Id"))
-		private Set<Address> listOfAddresses = new HashSet<Address>();
+		@GenericGenerator(name="hilo-gen", strategy="hilo")
+		@CollectionId(columns = { @Column(name="Address_Id") }, generator = "hilo-gen", type = @Type(type = "long"))
+		private Collection<Address> listOfAddresses = new ArrayList<Address>();
 		public Student() {}
 		
 		
@@ -49,15 +54,15 @@ public class Student {
 		}
 
 
-		public Set<Address> getListOfAddresses() {
+		public Collection<Address> getListOfAddresses() {
 			return listOfAddresses;
 		}
 
 
-		public void setListOfAddresses(Set<Address> listOfAddresses) {
+		public void setListOfAddresses(Collection<Address> listOfAddresses) {
 			this.listOfAddresses = listOfAddresses;
 		}
-
+		
 		
 		
 }
